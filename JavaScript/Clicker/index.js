@@ -3,9 +3,9 @@ let timer = 4;
 let timerActive = false;
 
 function finishTheGame(event) {
-  const element = document.querySelector(".score");
+  const element = document.querySelector(".container__info-score");
   element.classList.toggle("active");
-  if (event.target.classList == "score") {
+  if (event.target.classList == "container__info-score") {
     event.target.classList.toggle("active");
     if (!event.target.classList.contains("active")) {
       event.target.classList.toggle("active");
@@ -15,11 +15,13 @@ function finishTheGame(event) {
 
 function startTimer(timer) {
   if (timer === 0) {
-    document.querySelector(".timer").textContent = "Time: " + timer;
+    document.querySelector(".container__info-timer").textContent =
+      "Time: " + timer;
     timerActive = false;
     finishTheGame();
   } else {
-    document.querySelector(".timer").textContent = "Time: " + timer;
+    document.querySelector(".container__info-timer").textContent =
+      "Time: " + timer;
     setTimeout(function () {
       startTimer(timer - 1);
     }, 1000);
@@ -32,7 +34,8 @@ function clickHandler() {
     startTimer(timer);
   }
 
-  document.querySelector(".score").textContent = "Score: " + newScore;
+  document.querySelector(".container__info-score").textContent =
+    "Score: " + newScore;
 }
 
 function setTime() {
