@@ -5,6 +5,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 0;
+  user-select: none;
 }
 h1,
 footer {
@@ -45,7 +46,11 @@ article {
   left: 0;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   color: white;
+}
+.endgame__score {
+  margin-bottom: 20px;
 }
