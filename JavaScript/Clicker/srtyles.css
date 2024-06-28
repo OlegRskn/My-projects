@@ -19,20 +19,22 @@ footer {
 .container {
   display: flex;
   justify-content: space-around;
+  width: 50vw;
 
   flex-wrap: wrap;
 }
 .container div {
-  border: 1px solid rgb(126, 58, 58);
+  box-sizing: border-box;
 }
 .buttonContainer {
   display: flex;
 }
 article {
-  border: 1px solid red;
+  outline: 1px solid red;
 }
 .info {
   width: 100px;
+  flex-direction: column;
 }
 .active {
   position: fixed;
