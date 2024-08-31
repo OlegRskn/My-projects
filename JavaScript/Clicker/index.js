@@ -2,28 +2,20 @@ let score = 0;
 let timer = 4;
 let timerActive = false;
 
-// function finishTheGame(event) {
-//   const element = document.querySelector(".container__info-score");
-//   element.classList.toggle("active");
-//   if (event.target.classList == "container__info-score") {
-//     event.target.classList.toggle("active");
-
-//     if (!event.target.classList.contains("active")) {
-//       event.target.classList.toggle("active");
-//     }
-//   }
-// }
 function finishTheGame() {
   const parent = document.createElement("div");
   parent.classList.add("endgame");
   parent.classList.add("active");
 
   const finalScore = document.createElement("div");
+  const clicksPerSec = document.createElement("div");
   finalScore.classList.add("endgame__score");
+  clicksPerSec.classList.add("endgame__score");
 
   const scoreElement = document.querySelector(".container__info-score");
   const scoreText = scoreElement.textContent;
   finalScore.textContent = scoreText;
+  clicksPerSec.textContent = `Clicks per second: ${score / timer}`;
 
   const newGameButton = document.createElement("button");
   newGameButton.classList.add("endgame__button");
@@ -32,6 +24,7 @@ function finishTheGame() {
   const body = document.querySelector("body");
   body.appendChild(parent);
   parent.appendChild(finalScore);
+  parent.appendChild(clicksPerSec);
   parent.appendChild(newGameButton);
   newGameButton.addEventListener("click", deleteActiveBlocks);
   score = 0;
@@ -81,16 +74,7 @@ function changeTime() {
   newDiv.textContent = time.toLocaleTimeString();
   setTimeout(changeTime, 1000);
 }
-// function createNewGameButton() {
-//   const newGameButton = document.createElement("button");
-//   newGameButton.classList.add("container__new-game-button");
-//   newGameButton.classList.add("button");
-//   newGameButton.classList.add("active");
-//   newGameButton.textContent = "New game";
-//   const parent = document.querySelector(".container__button");
 
-//   parent.appendChild(newGameButton);
-// }
 function init() {
   const button = document.querySelector(".button");
   button.addEventListener("click", clickHandler);
