@@ -8,12 +8,12 @@ const getUniqElement = (arr) => {
 
   /* Сперва добавляем в map элементы массива в кач-ве ключей, 
   и количество их встреч в кач-ве значений*/
-  for (i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (!map.has(arr[i])) {
       map.set(arr[i], 1);
     } else {
       let counter = map.get(arr[i]);
-      map.set(arr[i], (counter += 1));
+      map.set(arr[i], counter + 1);
     }
   }
 
