@@ -5,6 +5,9 @@ const arr2 = ["dog", "dog", "cat", "cat", "sheep", "parrot", "parrot"];
 
 const getUniqElement = (arr) => {
   const map = new Map();
+
+  /* Сперва добавляем в map элементы массива в кач-ве ключей, 
+  и количество их встреч в кач-ве значений*/
   for (i = 0; i < arr.length; i++) {
     if (!map.has(arr[i])) {
       map.set(arr[i], 1);
@@ -13,14 +16,14 @@ const getUniqElement = (arr) => {
       map.set(arr[i], (counter += 1));
     }
   }
+
+  /* Затем ищем значение равное 1 и возвращаем ключ*/
   for (let [key, value] of map.entries()) {
     if (value === 1) {
-      return key;
+      return key; // Отмечу, что тут мы возвращаем только первый элемент, с одним вхождением
     }
   }
 };
 
 console.log(getUniqElement(arr1)); // 5
 console.log(getUniqElement(arr2)); // 'sheep'
-
-module.exports = getUniqElement;
